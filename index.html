@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Onkos Diagnósticos Moleculares</title>
+<meta name="description" content="Testes moleculares mir-THYpe para nódulos de tireoide. Transformando incertezas diagnósticas em decisões clínicas mais seguras.">
+<link rel="icon" href="assets/img/logo_onkos.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!-- ===================== SVG ICON SPRITES ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm4.9-9.1a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1zM12 3.6c2.7 0 3 0 4.1.1 2.8.1 4.1 1.4 4.2 4.2.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 2.8-1.4 4.1-4.2 4.2-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-2.8-.1-4.1-1.4-4.2-4.2C3.6 15 3.6 14.7 3.6 12s0-3 .1-4.1C3.8 5.1 5.1 3.8 7.9 3.7 9 3.6 9.3 3.6 12 3.6z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M6.9 8.8H3.8V20h3.1zM5.3 3.5a1.8 1.8 0 1 0 1.8 1.8 1.8 1.8 0 0 0-1.8-1.8zM20.2 13.6c0-3-.7-5.1-4.1-5.1a3.6 3.6 0 0 0-3.2 1.8V8.8H9.9V20H13v-5.5c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.2z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.7v8z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.2 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.6 4.6 0 0 0 1 2.5 10.6 10.6 0 0 0 4.1 3.6c1.5.7 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.2 2 2 0 0 0 .2-1.2c-.1-.1-.2-.2-.6-.3z"/></symbol>
+</svg>
+
+<!-- ===================== HEADER (theme) ===================== -->
+<template id="tpl-header">
+<header class="hdr edge"><div class="hdr-in">
+  <a class="brand" href="#inicio" aria-label="Onkos, início"><img src="assets/img/logo_onkos.svg" alt="onkos"></a>
+  <nav class="menu" aria-label="Menu principal">
+    <div><a class="navlink" href="#quem-somos">Quem somos</a>
+      <div class="drop"><a href="#quem-somos">Nossa história</a><a href="#qualidade">Nossa qualidade</a><a href="#quem-somos">Missão, Visão, Valores</a><a href="#quem-somos">Onkers</a><a href="#na-midia">Na Mídia</a><a href="#quem-somos">Prêmio e Reconhecimentos</a><a href="#qualidade">Ciência P&amp;D</a></div></div>
+    <div><a class="navlink" href="#mir-thype">Exames</a>
+      <div class="drop"><a href="#mir-thype">mir-THYpe</a><a href="#full">mir-THYpe full</a><a href="#preop">mir-THYpe pre-op</a><a href="#target">mir-THYpe target</a><a href="#mir-thype">mir-THYpe RET-hereditary</a></div></div>
+    <div><a class="navlink" href="#na-midia">Blog</a></div>
+    <div><a class="navlink" href="#contato">Fale conosco</a></div>
+    <div><a class="navlink" href="#pacientes">Internacional</a></div>
+  </nav>
+  <div class="lang"><b>PT</b><span>EN</span><span>ES</span></div>
+  <span class="cap"><img src="assets/img/Logo-CAP.webp" alt="CAP Accredited"></span>
+  <button class="burger" type="button" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</div></header>
+</template>
+
+<!-- ===================== FAQ (shared) ===================== -->
+<template id="tpl-faq">
+<section class="sec" data-label="Tire suas dúvidas"><div class="wrap">
+  <div class="gap-m"></div>
+  <h2 class="center" style="font-size:30px">Tire suas dúvidas</h2>
+  <div class="gap-s"></div>
+  <div class="faq">
+    <div>
+      <details><summary>Qual a diferença entre o mir-THYpe full e o mir-THYpe pre-op?</summary><div class="a"><p>O mir-THYpe® full - Classificador Molecular para Nódulo Indeterminado é indicado para nódulos Bethesda III ou IV, visando auxiliar a decisão médica entre o acompanhamento ativo ou a indicação cirúrgica.</p><p>Analisa o perfil de expressão de microRNAs avaliando o comportamento molecular da amostra para “positivo” ou “negativo para” malignidade.</p><p>Analisa também marcadores de utilidade prognóstica que indicam o potencial de agressividade dos nódulos.</p><p>O mir-THYpe® pre-op - Painel Molecular Pré-operatório é indicado para nódulos Bethesda V ou VI ou para pacientes que já têm indicação cirúrgica.</p><p>Visa auxiliar na decisão médica de extensão e urgência cirúrgica ou suporte à vigilância ativa de microcarcinomas.</p><p>O exame detecta a presença de marcadores prognósticos que indicam o potencial de agressividade dos nódulos.</p></div></details>
+      <details><summary>Quais documentos são necessários para realizar o exame?</summary><div class="a"><p>Além das lâminas da punção, precisamos de 3 documentos:</p><ul><li>Formulário de Pedido Médico: O médico solicitante deve preencher, imprimir, carimbar e assinar. Você pode baixá-lo neste link: http://bit.ly/Pedido_Medico</li><li>Termo de Consentimento (este documento vai junto com o kit): Deve ser preenchido e assinado pelo paciente. Caso precise, podemos enviar a versão online também!</li><li>Cópia do laudo da PAAF do nódulo que deseja analisar</li></ul></div></details>
+      <details><summary>Fiz duas punções do mesmo nódulo, qual devo encaminhar?</summary><div class="a"><ul><li>Normalmente os médicos solicitam o exame da punção mais recente.</li><li>Porém, nós faremos a análise das lâminas da punção que o médico solicitar no pedido médico.</li><li>Pode ser que o laboratório te libere as lâminas de todas as punções. Caso isso ocorra, você pode nos mandar todas e nosso setor técnico faz a separação aqui. As lâminas não utilizadas serão armazenadas por até 5 anos.</li></ul></div></details>
+      <details><summary>Em cada tubinho só cabem 3 lâminas, como faço?</summary><div class="a"><p>Você pode colocar mais de três lâminas, se você colocar as lâminas perpendiculares às abas que possui dentro do tubo, cabem até 9 lâminas em cada um. Como na imagem abaixo:</p><img src="assets/img/ONKOS-FAQ-imagem-tubinho-com-laminas-241x300.webp" alt="Tubo com lâminas posicionadas" width="160" loading="lazy"></div></details>
+    </div>
+    <div>
+      <details><summary>Quais são as formas de pagamento?</summary><div class="a"><p>Temos várias opções de pagamento: Pix, Transferência, Boleto, Depósito e Parcelamento. Conseguimos parcelar em até 10x sem juros no cartão de crédito, e além disso temos a opção desconto ao realizar o pagamento à vista!</p></div></details>
+      <details><summary>Qual o prazo para liberarem o resultado?</summary><div class="a"><p>Após recebermos o kit e confirmarmos o pagamento, o prazo para o resultado é de 15 dias úteis. O laudo é enviado direto para o e-mail do paciente e do médico solicitante do exame.</p></div></details>
+      <details><summary>Preciso realizar nova punção para realizar o teste molecular?</summary><div class="a"><p>Para realizar o exame, não é necessário fazer uma nova punção (PAAF). O exame é feito a partir do material (lâminas) da punção já realizada.</p></div></details>
+      <details><summary>Fiz a PAAF tem mais de 1 ano, posso utilizar mesmo assim?</summary><div class="a"><p>Tecnicamente podemos fazer o exame em lâminas de até 5 anos, porém, o mir-THYpe® será uma “foto” de como estava o seu nódulo na época de sua punção. O ideal é verificar com o seu médico a possibilidade de realizar o exame deste material, pois ele tem todo o seu histórico e saberá te dizer se o nódulo sofreu alguma alteração neste período. Dependendo do caso podemos utilizar o mesmo material ou o seu médico pode solicitar uma nova PAAF.</p></div></details>
+    </div>
+  </div>
+  <div class="gap-m"></div>
+</div></section>
+</template>
+
+<!-- ===================== PARTNERS (shared) ===================== -->
+<template id="tpl-partners">
+<section class="sec" data-label="Encontre o nosso parceiro"><div class="edge">
+  <div class="pbar"><h2>Encontre o nosso parceiro em sua região</h2></div></div>
+  <div class="wrap" style="display:grid;gap:22px;padding-block:44px 30px">
+    <div class="filters" role="group" aria-label="Filtrar por região"><button type="button" class="on">Todos</button><button type="button">Centro Oeste</button><button type="button">Internacional</button><button type="button">Nordeste</button><button type="button">Norte</button><button type="button">Sudeste</button><button type="button">Sul</button></div>
+    <div class="plogos"><img src="assets/img/unimed.webp" alt="Laboratório Unimed" loading="lazy"><img src="assets/img/Thellab.webp" alt="Thellab" loading="lazy"><img src="assets/img/Southgenetics.webp" alt="SouthGenetics" loading="lazy"><img src="assets/img/Soares.webp" alt="Soares Patologia" loading="lazy"><img src="assets/img/Siriolibanes.webp" alt="Sírio-Libanês" loading="lazy"><img src="assets/img/SabinMed_horizontal_COR.webp" alt="Sabin" loading="lazy"></div>
+    <div class="pager"><span>Anterior</span><span>1</span><b>2</b><b>3</b><b>4</b><b>5</b><b>Próximo</b></div>
+  </div>
+</section>
+</template>
+
+<!-- ===================== BLOG CAROUSEL (shared) ===================== -->
+<template id="tpl-blog">
+<div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track">
+  <a class="bcard" href="https://www.onkos.com.br/post/nodulo-na-tireoide-e-grave/" target="_blank" rel="noopener"><img src="assets/img/blog1.webp" alt="" loading="lazy"><span>Nódulo na tireoide é grave?</span></a>
+  <a class="bcard" href="https://www.onkos.com.br/post/como-surgem-os-nodulos-na-tireoide/" target="_blank" rel="noopener"><img src="assets/img/blog2.webp" alt="" loading="lazy"><span>Como surgem os nódulos na tireoide?</span></a>
+  <a class="bcard" href="https://www.onkos.com.br/post/nodulo-indeterminado-nao-e-resposta/" target="_blank" rel="noopener"><img src="assets/img/blog3.webp" alt="" loading="lazy"><span>Nódulo Indeterminado não é resposta</span></a>
+  <a class="bcard" href="https://www.onkos.com.br/post/diferenca-entre-diagnostico-e-prognostico/" target="_blank" rel="noopener"><img src="assets/img/blog4.webp" alt="" loading="lazy"><span>Diferença entre diagnóstico e prognóstico</span></a>
+  <a class="bcard" href="https://www.onkos.com.br/post/nodulo-inconclusivo/" target="_blank" rel="noopener"><img src="assets/img/blog5.webp" alt="" loading="lazy"><span>Nódulo inconclusivo na punção de tireoide: o que fazer?</span></a>
+  <a class="bcard" href="https://www.onkos.com.br/post/teste-molecular-para-tireoide/" target="_blank" rel="noopener"><img src="assets/img/blog6.webp" alt="" loading="lazy"><span>Teste molecular para tireoide: entenda o teste que pode evitar cirurgias desnecessárias</span></a>
+</div><button class="arrow next" type="button" aria-label="Próximo"></button></div>
+</template>
+
+<!-- ===================== FOOTER (theme) ===================== -->
+<template id="tpl-footer">
+<footer class="ftr" data-label="Rodapé"><div class="wrap">
+  <div class="fcols">
+    <div><h4>Onkos Diagnósticos Moleculares</h4><p>Somos o laboratório líder em desenvolvimento de testes moleculares para oncologia na América Latina. Nossos testes são baseados em perfis de expressão gênica (microRNA) e marcadores genéticos (mutações de DNA).</p>
+      <p class="nl">Receba notícias do setor e novidades sobre a Onkos. <b>Assine nossa Newsletter:</b></p>
+      <form class="field" data-demo><input type="email" placeholder="E-mail" aria-label="E-mail para newsletter"><button type="submit" aria-label="Assinar"></button></form></div>
+    <div><h4>Contato</h4><p><b>Atendimento ao Paciente - Whatsapp:</b> (16) 99700-4265<br><b>Assessoria para Médicos - Whatsapp:</b> (16) 99159-3786 <b>Assessoria de imprensa:</b> imprensa@onkos.com.br<br><b>Horário de atendimento:</b> segunda a sexta-feira, das 08h às 17h30<br><b>E-mail:</b> onkos@onkos.com.br</p><p style="margin-top:20px"><b><u>Fale com a Ouvidoria</u></b></p></div>
+    <div><h4>Informações da empresa</h4><p>Empresa registrada junto ao Conselho Regional de Biologia (CRBio) sob o n° 001800/01-D. Licença Sanitária CEVS n° 354340218-864-004749-1-6. Cadastro Nacional de Estabelecimentos de Saúde - CNES: 0823104<br><b>Responsável técnico:</b> Dr. Marcos Tadeu dos Santos - Biólogo Molecular – CRBio n° 113094/01-D<br><b>Razão Social:</b> Onkos Diagnosticos Moleculares LTDA<br><b>CNPJ:</b> 22.203.791/0001-90</p><p style="margin-top:20px"><b><u>Política de Privacidade</u></b></p></div>
+  </div>
+  <div class="bottom"><nav aria-label="Rodapé"><a href="#inicio">Home</a><a href="#mir-thype">mir-THYpe</a><a href="#contato">Contato</a></nav><span><b>PT</b> &nbsp; EN &nbsp; ES</span><span>© 2026 Copyright Onkos</span>
+    <span class="soc" style="margin-left:auto"><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg></a><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg></a><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg></a><a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg></a></span></div>
+</div></footer>
+</template>
+
+<!-- ===================== CAP BADGE ===================== -->
+<template id="tpl-cap"><img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP"></template>
+
+<main id="app">
+
+<!-- ======================================================= HOME -->
+<div class="page" data-page="inicio" data-title="Início (home)" data-noheader data-nofooter>
+  <section class="sec edge" data-label="Banner principal (slider)" style="padding-top:10px">
+    <div class="slider" id="hs">
+      <div class="slide s0 on">
+        <video src="assets/img/banner.mp4" poster="assets/img/banner_poster.webp" autoplay muted loop playsinline aria-hidden="true"></video>
+        <div class="veil"></div>
+        <div class="txt">
+          <h1>Transformando incertezas diagnósticas em <b>decisões clínicas mais seguras.</b></h1>
+          <div class="btns"><a class="pill" href="#mir-thype">Sou médico</a><a class="pill" href="#pacientes">Sou paciente</a></div>
+        </div>
+        <img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP">
+      </div>
+      <div class="slide" style="background-image:url(assets/img/BG_home_2.webp)">
+        <div class="quote">
+          <div><p class="q">Conforme o desejo da paciente, evitamos a cirurgia, com ajuda do teste molecular</p>
+            <div class="who"><span>Dr. Higino Steck<br>Cirurgião de cabeça e pescoço</span><img src="assets/img/seta_2.webp" alt=""></div></div>
+          <img class="phone" src="assets/img/depoimento_2.webp" alt="Vídeo do depoimento do Dr. Higino Steck">
+        </div>
+        <img class="ic" src="assets/img/gostar.webp" alt="">
+      </div>
+      <div class="slide" style="background-image:url(assets/img/BG_home_1.webp)">
+        <div class="quote">
+          <div><p class="q">mir-THYpe foi o exame que salvou minha tireoide</p>
+            <div class="who"><span>Fernanda<br>Paciente Onkos</span><img src="assets/img/seta_2.webp" alt=""></div></div>
+          <img class="phone" src="assets/img/depoimento_1.webp" alt="Vídeo do depoimento da paciente Fernanda">
+        </div>
+        <img class="ic" src="assets/img/coracao.webp" alt="">
+      </div>
+      <button class="arrow prev" type="button" aria-label="Slide anterior"></button>
+      <button class="arrow next" type="button" aria-label="Próximo slide"></button>
+      <div class="dots"></div>
+    </div>
+  </section>
+
+  <section class="sec" data-label="Frase institucional"><div class="wrap center" style="padding-block:80px 40px">
+    <p style="font-size:22px;color:#000;line-height:1.4;max-width:420px;margin:0 auto">Com tecnologia molecular proprietária focada em oncologia para apoiar médicos e pacientes.</p>
+  </div></section>
+
+  <section class="sec" data-label="Números"><div class="wrap" style="padding-inline:0">
+    <div class="stats">
+      <div class="stat"><small>+ de</small><b>9000</b><span>pacientes<br>impactados</span></div>
+      <div class="stat"><small>+ de</small><b>2500</b><span>médicos utilizam<br>nossa tecnologia</span></div>
+      <div class="stat"><small>+ de</small><b>30</b><span>países<br>atendidos</span></div>
+      <div class="stat"><small>+ de</small><b>40</b><span>parceiros<br>pelo mundo</span></div>
+      <div class="stat"><small>+ de</small><b>600<sup>m2</sup></b><span>de laboratório<br>dedicado</span></div>
+    </div>
+  </div><div class="gap-m"></div></section>
+
+  <section class="sec edge" data-label="Descobriu um nódulo indeterminado">
+    <div class="disc"><div class="r">
+      <h2>Descobriu<br>um <b>nódulo<br>indeterminado</b><br>de tireoide?</h2>
+      <p>Quando exames convencionais não fornecem todas as respostas, nossas soluções acrescentam uma nova camada de informação personalizada para trazer mais clareza.</p>
+      <a class="pill wide" href="#pacientes">Entenda como funciona o<br>teste molecular mir-THYpe</a>
+    </div></div>
+    <div class="gap-l"></div>
+  </section>
+
+  <section class="sec" data-label="Conheça a Onkos (vídeo)"><div class="wrap" style="max-width:1000px">
+    <div class="know">
+      <div><div class="logos"><img src="assets/img/mir-thype_2026.webp" alt="mir-THYpe"><img src="assets/img/logo_onkos.svg" alt="onkos"></div>
+        <h2>Nem toda decisão é igual.<br>Porque nenhum paciente<br>é igual.</h2><h3>Conheça a Onkos!</h3></div>
+      <a class="vthumb" href="https://youtu.be/pyIKvn8YgxA" target="_blank" rel="noopener" aria-label="Assistir vídeo institucional da Onkos"><img src="assets/img/Thumb-video-onkos.webp" alt="" loading="lazy"></a>
+    </div>
+    <div class="gap-l"></div>
+  </div></section>
+
+  <section class="sec" data-label="Depoimentos"><div class="wrap" style="max-width:860px">
+    <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track">
+      <div class="tcard"><p>O resultado me trouxe mais segurança para decidir pelo acompanhamento, evitando uma cirurgia que não era necessária naquele momento</p><span class="nm">Paciente Onkos</span><span class="stars" aria-label="5 estrelas">★★★★★</span></div>
+      <div class="tcard"><p>Ter mais informação me ajudou a entender minhas opções e seguir o tratamento com tranquilidade.</p><span class="nm">Paciente Onkos</span><span class="stars" aria-label="5 estrelas">★★★★★</span></div>
+      <div class="tcard"><p>Atendimento excelente, sempre de imediato quando surgiam as dúvidas. Recomendaria com certeza.</p><span class="nm">Comentário do Cliente</span><span class="stars" aria-label="5 estrelas">★★★★★</span></div>
+      <div class="tcard"><p>Me ajudou a tomar uma importante decisão e tive suporte de qualidade da equipe de vcs.</p><span class="nm">Comentário do Cliente</span><span class="stars" aria-label="5 estrelas">★★★★★</span></div>
+    </div><button class="arrow next" type="button" aria-label="Próximo"></button></div>
+    <div class="gap-m"></div>
+  </div></section>
+
+  <div data-use="tpl-partners"></div>
+
+  <section class="sec" data-label="Blog (carrossel)"><div class="wrap" style="padding-block:60px 20px" data-use="tpl-blog"></div></section>
+
+  <div data-use="tpl-faq"></div>
+</div>
+
+<!-- ======================================================= EXAMES PACIENTES -->
+<div class="page" data-page="pacientes" data-title="Exames · Pacientes" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/bg_banner_contato.webp)"><div class="in">
+      <div class="hero-row"><div style="display:grid;gap:30px"><h1>Seu médico identificou<br>um <b>nódulo de tireoide?</b></h1><div><a class="pill" href="#contato">Solicite o mir-THYpe</a></div></div><img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP"></div>
+    </div></div>
+  </section>
+  <section class="sec" data-label="Nem todo nódulo significa câncer"><div class="wrap" style="padding-block:70px">
+    <p class="lead-c" style="font-size:22px"><b>Nem todo nódulo significa câncer</b><br>Os nódulos de tireoide são muito comuns. Estima-se que 6 em cada 10 pessoas terão algum nódulo ao longo da vida.<br>A maioria deles é benigna.</p>
+  </div></section>
+  <section class="sec journey" data-label="Como funciona sua jornada"><div class="wrap" style="padding-block:60px;display:grid;gap:40px">
+    <p style="font-size:18px;color:#000">Como funciona sua jornada:</p>
+    <div class="jsteps">
+      <div class="jstep"><i>1</i><p><b>Descoberta do nódulo</b>Ultrassom identifica alterações na tireoide.</p></div>
+      <div class="jstep"><i>2</i><p><b>Avaliação médica</b>Seu médico solicita exames complementares.</p></div>
+      <div class="jstep"><i>3</i><p><b>Punção (PAAF)</b>Amostras são coletadas para análise.</p></div>
+      <div class="jstep"><i>4</i><p><b>Análise molecular</b>O mir-THYpe amplia as informações disponíveis, e seu médico define a conduta mais adequada para o seu caso.</p></div>
+      <div class="jstep"><i>5</i><p><b>Decisão clínica</b>Seu médico define a conduta mais adequada para o seu caso. Acompanhamento ou cirurgia ou tratamento.</p></div>
+    </div>
+    <div class="after">Após os procedimentos, basta realizar periodicamente o acompanhamento médico.</div>
+  </div></section>
+  <section class="sec" data-label="Quando a punção deixa dúvidas"><div class="wrap" style="padding-block:70px 40px">
+    <p class="lead-c" style="font-size:26px;max-width:980px;margin:0 auto">Quando a punção deixa dúvidas, entenda como o <b>teste molecular</b> pode ajudar a escolher a <b>conduta mais adequada</b> para o seu caso.</p>
+  </div></section>
+  <section class="sec casebox" data-label="Casos: indeterminado, suspeito, avançado"><div class="wrap" style="display:grid;gap:80px;padding-block:20px 80px">
+    <div class="case"><div class="top"><div class="tag">Meu resultado<br>foi indeterminado<small>Bethesda III ou IV</small></div><img src="assets/img/full.svg" alt="mir-THYpe full"></div>
+      <div class="body"><div class="img-r"><img src="assets/img/01.webp" alt="Mulher com a mão no pescoço" loading="lazy"></div><div class="r"><p>A análise molecular <b>reclassifica seu nódulo em maligno e benigno</b>, e seu médico tem mais informações para decidir entre acompanhamento ou cirurgia.</p><a class="pill" href="#full">Conheça o mir-THYpe full</a></div></div></div>
+    <div class="case"><div class="top"><div class="tag">Meu nódulo tem suspeita<br>de malignidade<small>Bethesda V ou VI</small></div><img src="assets/img/pre-op@2x.webp" alt="mir-THYpe pre-op"></div>
+      <div class="body"><div class="img-r"><img src="assets/img/02.webp" alt="Paciente em exame de ultrassom" loading="lazy"></div><div class="r"><p>A análise molecular traz informações adicionais sobre o <b>potencial de agressividade do nódulo</b> para avaliação da extensão e urgência cirúrgica.</p><a class="pill" href="#preop">Conheça o mir-THYpe pre-op</a></div></div></div>
+    <div class="case"><div class="top"><div class="tag">Tenho câncer de<br>tireoide avançado</div><img src="assets/img/target@2x.webp" alt="mir-THYpe target"></div>
+      <div class="body"><div class="img-r"><img src="assets/img/03.webp" alt="Médico examinando o pescoço de uma paciente" loading="lazy"></div><div class="r"><p>Para pessoas com <b>tumores avançados e/ou metastáticos de Tireoide,</b> a análise molecular ajuda a identificar alterações genéticas importantes para definição terapêutica.</p><a class="pill" href="#target">Conheça o mir-THYpe target</a></div></div></div>
+  </div></section>
+  <section class="sec howto" data-label="Como solicitar seu exame"><div class="wrap" style="display:grid;gap:30px">
+    <div class="head"><h2>Como <b>solicitar seu exame:</b></h2><img src="assets/img/selo_2.webp" alt="Abrangência internacional"></div>
+    <hr class="rule">
+    <div class="gap-s"></div>
+    <div class="req">
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><path d="M10 6h20l8 8v28H10z"/><path d="M15 16h14M15 22h16M15 28h10"/><path d="M28 40l10-10 3 3-10 10h-3z"/></svg><h3>1.Solicite seu<br><b>pedido médico</b></h3><p>Peça ao seu médico que preencha, assine e carimbe o Pedido Médico.</p><div class="bt"><a class="pill or sm noarrow" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener">Acesse o pedido</a></div></div>
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><rect x="8" y="6" width="32" height="36" rx="2"/><path d="M18 6v16l6-4 6 4V6"/></svg><h3>2. Contate a<br><b>Onkos</b></h3><p>Com o pedido médico em mãos, entre em contato conosco.</p><div class="bt"><a class="pill or sm noarrow" href="#contato">Solicite seu kit</a></div></div>
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><path d="M8 10h4M16 10h24M8 18h4M16 18h24M8 26h4M16 26h16M8 34h4M16 34h10"/><path d="M38 30v12M32 36h12"/></svg><h3>3. Logística por<br><b>nossa conta</b></h3><p>A logística de retirada da amostra é responsabilidade da Onkos</p><div class="bt"><span class="pill or sm noarrow">Instruções</span></div></div>
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M14 18h10M14 26h8M26 26l4 4 8-9"/></svg><h3>4. Receba<br><b>o resultado</b></h3><p>Online, você e seu médico têm acesso ao seu resultado em nosso portal de laudos</p><div class="bt"><span class="pill or sm noarrow">Ex. Negativo</span><span class="pill or sm noarrow">Ex. Positivo</span></div></div>
+    </div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec" data-label="Histórias de quem passou por essa jornada"><div class="wrap" style="display:grid;gap:40px">
+    <h2 style="font-size:30px">Histórias de quem passou <b>por essa jornada</b></h2>
+    <div class="shorts">
+      <a class="short" href="https://www.youtube.com/@onkosdiagnosticos/shorts" target="_blank" rel="noopener"><span class="sh">Shorts</span><span class="pl"></span><span class="cap"><b>Onkos Diagnósticos Moleculares</b>Recebi um resultado de nódulo …</span></a>
+      <a class="short" href="https://www.youtube.com/@onkosdiagnosticos/shorts" target="_blank" rel="noopener"><span class="sh">Shorts</span><span class="pl"></span><span class="cap"><b>Onkos Diagnósticos Moleculares</b>Nódulo indeterminado (suspeita de …</span></a>
+      <a class="short" href="https://www.youtube.com/@onkosdiagnosticos/shorts" target="_blank" rel="noopener"><span class="sh">Shorts</span><span class="pl"></span><span class="cap"><b>Onkos Diagnósticos Moleculares</b>Não precisei fazer a cirurgia! Preserv…</span></a>
+    </div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec edge" data-label="Dados: 30% e 77%">
+    <div class="window"><p>Cerca de <b>30%</b><br>dos casos de nódulo<br>de tireoide têm resultado<br>indeterminado, e acabam em cirurgia.</p><p>até <b>77%</b><br>dos <b>nódulos de tireoide indeterminados</b><br>(Bethesda III ou IV), submetidos à cirurgia<br><b>são reclassificados como benignosa<br>pós a cirurgia¹</b></p></div>
+    <div class="gap-l"></div>
+  </section>
+</div>
+
+<!-- ======================================================= MIR-THYPE (MÉDICOS) -->
+<div class="page" data-page="mir-thype" data-title="mir-THYpe · Médicos" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/bg_banner_contato.webp)"><div class="in" style="gap:16px">
+      <img class="logo" src="assets/img/mir-thype_2026.webp" alt="mir-THYpe">
+      <p class="or-t">Ferramenta de suporte à decisão clínica</p>
+      <div class="hero-row" style="align-items:center">
+        <div style="display:grid;gap:34px"><h1>Mais clareza em<br><b>nódulos de tireoide</b></h1><div><a class="pill" href="#contato">Saiba como prescrever</a></div></div>
+        <p class="mstat"><b>+2500</b>médicos utilizam<br>nossa tecnologia</p>
+        <img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP">
+      </div>
+    </div></div>
+  </section>
+  <section class="sec" data-label="Formulário de pedido médico"><div class="wrap center" style="padding-block:60px;display:grid;gap:26px;justify-items:center">
+    <h2 style="font-size:26px;font-weight:500">Baixe aqui o formulário de pedido médico</h2>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center"><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/full_logo.webp" alt="mir-THYpe full"></a><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/pre-op@2x.webp" alt="mir-THYpe pre-op"></a><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/target@2x.webp" alt="mir-THYpe target"></a></div>
+  </div></section>
+  <section class="sec" data-label="Vídeo para médicos"><div class="wrap">
+    <a class="vthumb" style="border-radius:30px" href="https://www.youtube.com/@onkosdiagnosticos" target="_blank" rel="noopener" aria-label="Assistir vídeo do mir-THYpe para médicos"><img src="assets/img/Thumb-video-mir-THYpe-medicos.webp" alt="" loading="lazy"></a>
+    <div class="gap-l"></div>
+  </div></section>
+  <section class="sec" data-label="Portfólio de testes"><div class="wrap" style="display:grid;gap:100px;padding-inline:max(60px,env(safe-area-inset-left,0px))">
+    <div class="prod"><img class="lg" src="assets/img/full.svg" alt="mir-THYpe full"><div class="body"><div class="img-r"><img src="assets/img/01.webp" alt="" loading="lazy"></div><div class="r"><h3><b>Nódulos indeterminados</b><br>(Bethesda III ou IV) <b>na PAAF?</b></h3><a class="pill" href="#full" style="min-width:150px">Saiba Mais</a></div></div></div>
+    <div class="prod"><img class="lg" src="assets/img/pre-op@2x.webp" alt="mir-THYpe pre-op"><div class="body"><div class="img-r"><img src="assets/img/02.webp" alt="" loading="lazy"></div><div class="r"><h3>Suporte no<br><b>planejamento<br>e extensão cirúrgica</b></h3><a class="pill" href="#preop" style="min-width:150px">Saiba Mais</a></div></div></div>
+    <div class="prod"><img class="lg" src="assets/img/target@2x.webp" alt="mir-THYpe target"><div class="body"><div class="img-r"><img src="assets/img/03.webp" alt="" loading="lazy"></div><div class="r"><h3>Painel Tumoral para<br><b>Seleção<br>de Drogas-Alvo em<br>Câncer<br>de Tireoide Avançado</b></h3><a class="pill" href="#target" style="min-width:150px">Saiba Mais</a></div></div></div>
+  </div><div class="gap-m"></div></section>
+  <section class="sec" data-label="Robustas evidências científicas"><div class="wrap" style="display:grid;gap:50px">
+    <h2 class="center" style="font-size:30px">Robustas <b>evidências científicas</b></h2>
+    <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track" style="justify-content:flex-start">
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Artigo-The-Lancet.webp" alt="The Lancet Discovery Science" loading="lazy"><a class="pill noarrow" href="https://doi.org/10.1016/j.ebiom.2022.104137" target="_blank" rel="noopener" style="padding-inline:34px">Acesse</a></div>
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Artigo-Thyroid.webp" alt="Revista Thyroid" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Poster-CBEM-scaled.webp" alt="Pôster CBEM" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+      <div class="pub" style="width:100%"><img src="assets/img/Imagem-estudo-ETA-scaled.webp" alt="Estudo European Thyroid Journal" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+    </div><button class="arrow next" type="button" aria-label="Próximo"></button></div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec" data-label="Diretrizes recomendam testes moleculares"><div class="wrap">
+    <div class="guides"><h2>Diretrizes Nacionais e Internacionais <b>recomendam o uso de testes moleculares</b></h2><ul><li>American Thyroid Association [2]</li><li>NCCN (National Comprehensive Cancer Network) [3]</li><li>Consenso Brasileiro [4]</li></ul></div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec" data-label="Atualizações científicas (newsletter)"><div class="wrap">
+    <div class="newsbox"><h2>Atualizações<br>científicas</h2><div><p>Receba publicações, casos clínicos, aulas e novidades em diagnóstico molecular</p><form class="field" data-demo><input type="email" placeholder="E-mail" aria-label="E-mail profissional"><button type="submit" aria-label="Enviar"></button></form></div></div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec" data-label="Diferenciais ao médico"><div class="wrap">
+    <div class="feats"><div><h3>Não requer nova punção</h3><p>Utiliza a mesma lâmina da PAAF já coletada, evitando desconforto e trazendo conveniência ao seu paciente</p></div><div><h3>Assessoria ao médico</h3><p>Equipe científica e operacional especializada dedicada ao suporte durante toda a jornada</p></div><div class="hl"><h3>OnkosGo</h3><p>Retiramos a amostra do seu paciente onde ela estiver armazenada, em qualquer lugar do Brasil e do mundo</p></div></div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec tech" data-label="Informações técnicas"><div class="wrap" style="display:grid;gap:20px">
+    <h2 class="center">Informações <b>Técnicas</b></h2>
+    <div class="acc">
+      <details><summary>Código TUSS</summary><div class="a"><p>4.03.14.60.0 — Teste molecular para nódulos de tireoide por perfil de microRNA (miRNA), por nódulo.</p></div></details>
+      <details><summary>Patente</summary><div class="a"><p>Patente n° BR 102018003587-8</p></div></details>
+      <details><summary>Responsável Técnico</summary><div class="a"><p>Dr. Marcos Tadeu dos Santos – Biólogo Molecular - CRBio n° 113094/01-D. Membro da Latin America Thyroid Society (LATS) e do Departamento de Tireoide da Sociedade Brasileira de Endocrinologia e Metabolismo (SBEM).</p></div></details>
+      <details><summary>Referências</summary><div class="a"><ol><li>Bongiovanni M, et al. 2012 Acta Cytologica</li><li>Haugen BR, et al. 2016 Thyroid.</li><li>NCCN Thyroid Carcinoma Clinical Practice Guidelines, v1.2017.</li><li>Rosário PW, et al, 2015 Thyroid nodule and differentiated thyroid cancer: update on the Brazilian consensus. Arq Bras Endocrinol Metab 57(4):240-2642</li><li>Santos MT et al., 2018 Molecular Classification of Thyroid Nodules with Indeterminate Cytology: Development and Validation of a Highly Sensitive and Specific New miRNA-Based Classifier Test Using Fine-Needle Aspiration Smear Slides Thyroid 28(12) 1618-1626</li><li>Santos, M. T., et al. (2022). Clinical decision support analysis of a microRNA-based thyroid molecular classifier: A real-world, prospective and multicentre validation study. The Lancet Discovery Science (eBioMedicine), 82, 104137.</li></ol></div></details>
+    </div>
+    <div class="gap-l"></div>
+  </div></section>
+</div>
+
+<!-- ======================================================= FULL -->
+<div class="page" data-page="full" data-title="mir-THYpe full" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/banner_full.webp)"><div class="in" style="padding-left:14%">
+      <img class="logo" src="assets/img/full.svg" alt="mir-THYpe full" style="width:240px">
+      <h1>Descobriu um <span style="color:var(--orange)">nódulo<br>indeterminado</span> de tireoide?</h1>
+      <div class="hero-row" style="justify-content:flex-start;gap:80px;align-items:center"><a class="pill" href="#contato">Solicite o seu mir-THYpe full</a><img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP" style="width:120px"></div>
+    </div></div>
+  </section>
+  <section class="sec side-or" data-label="O que fazer com apoio do teste molecular"><div class="wrap" style="padding-block:70px;display:grid;gap:40px">
+    <h2 class="center" style="font-size:30px">Entenda o que fazer com apoio do teste molecular</h2>
+    <div class="opts">
+      <h3>Existem diferentes opções de cuidado nos casos de nódulo Bethesda III ou IV.</h3>
+      <p style="font-size:15px;color:#000;margin-left:20px">As principais são:*</p>
+      <div class="diag">
+        <span>Conduta<br>padrão:</span><span class="ln">Cirurgia</span>
+        <span>Teste<br>molecular*</span><span class="fork"><span><b>negativo</b>:<br>acompanhamento</span><span><b>Positivo</b>:<br>cirurgia</span></span>
+      </div>
+      <p style="font-size:11px;color:#333;margin-left:150px">*Haugen BR, et al., 2016 Thyroid 26: 1–133</p>
+      <p class="qline">O mais importante é ter informações precisas para definir a opção mais segura para você.</p>
+    </div>
+  </div></section>
+  <section class="sec side-or2" data-label="Por que o mir-THYpe full"><div class="wrap" style="padding-block:60px">
+    <div class="ficons">
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#e2703a" stroke-width="1.8"><path d="M10 52l26-26 6 6-26 26z"/><path d="M36 26l14-14 4 4-14 14"/><path d="M6 56h52"/></svg><h3>Nódulos Indeterminados</h3><p>Cerca de 30% dos nódulos de tireoide avaliados por punção <b>(PAAF)</b> têm resultado indeterminado*, e muitos acabam em cirurgia.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#e2703a" stroke-width="1.8"><circle cx="32" cy="32" r="24"/><path d="M20 28c2 2 6 2 8 0M36 28c2 2 6 2 8 0M24 42c4 3 12 3 16 0"/></svg><h3>Diagnóstico de alta precisão</h3><p>O teste molecular mir-THYpe full analisa características genéticas do seu nódulo para dar mais clareza ao seu médico, e um cuidado personalizado para você.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#e2703a" stroke-width="1.8"><path d="M14 6v20c0 10 8 18 18 18s18-8 18-18V6"/><path d="M24 32c0 6 4 12 8 12s8-6 8-12"/><path d="M26 30l6 8 6-8M14 58c4-8 32-8 36 0"/></svg><h3>Decisão clínica</h3><p>Nem sempre a melhor escolha é tirar a tireoide. Não operar também é uma forma de tratamento, quando bem assistida.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#e2703a" stroke-width="1.8"><path d="M14 50l24-24 8 8-24 24-10 2z"/><path d="M38 26l6-6M42 14l8 8M46 10l8 8M26 38l4 4M32 32l4 4"/></svg><h3>Não requer nova punção</h3><p>Utilizamos a mesma amostra <b>(PAAF)</b> já coletada.</p></div>
+    </div>
+  </div></section>
+  <section class="sec" data-label="Números do mir-THYpe full"><div class="wrap" style="padding-block:40px 60px">
+    <div class="ostat"><img src="assets/img/02.webp" alt="Paciente em exame de ultrassom" loading="lazy"><div class="ocards"><div class="ocard"><span>+ de</span><b>9000</b><span>pacientes testados</span></div><div class="ocard"><span>+ de</span><b>2500</b><span>médicos prescritores</span></div></div></div>
+  </div></section>
+</div>
+
+<!-- ======================================================= PRE-OP -->
+<div class="page" data-page="preop" data-title="mir-THYpe pre-op" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/banner_pre_op.webp)"><div class="in" style="padding-left:14%">
+      <img class="logo" src="assets/img/pre-op@2x.webp" alt="mir-THYpe pre-op" style="width:240px">
+      <h1>Personalize sua decisão<br>de <span style="color:var(--blue)">extensão cirúrgica</span></h1>
+      <div class="hero-row" style="justify-content:flex-start;gap:200px;align-items:center"><a class="pill" href="#contato">Solicite o seu mir-THYpe pre-op</a><img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP" style="width:140px"></div>
+    </div></div>
+  </section>
+  <section class="sec blue-side" data-label="Para nódulos com indicação cirúrgica"><div class="wrap center" style="padding-block:70px;display:grid;gap:20px">
+    <h2 style="font-size:28px">Para nódulos de Tireoide com Indicação Cirúrgica (Bethesda V ou VI)</h2>
+    <p style="font-size:18px;color:#000">Análise de marcadores prognósticos que indicam o potencial de agressividade do nódulo, auxiliando no planejamento da extensão e urgência cirúrgica.</p>
+  </div></section>
+  <section class="sec" data-label="Marcadores prognósticos"><div class="wrap">
+    <div class="bluebox"><div><h3>Existem diferentes opções de cuidado nos casos de nódulo Bethesda III ou IV. As principais são:*</h3><p>Os marcadores prognósticos podem prever comportamentos mais ou menos agressivos, ajudando a personalizara extensão da cirurgia.</p></div>
+      <div class="markers"><div><img src="assets/img/01-1.webp" alt="" loading="lazy">Carcinoma medular<br><b>(microRNA e mutações RET)</b></div><div><img src="assets/img/02-1.webp" alt="" loading="lazy">miR-146b<br><b>(expressão)</b></div><div><img src="assets/img/03-1.webp" alt="" loading="lazy">BRAF<br><b>(V600E)</b></div><div><img src="assets/img/04-1.webp" alt="" loading="lazy">p. TERT<br><b>(C250T, C228T)</b></div></div></div>
+    <div class="gap-m"></div>
+  </div></section>
+  <section class="sec blue-side" data-label="Planejamento cirúrgico"><div class="wrap">
+    <div class="two"><div class="img-r"><img src="assets/img/tireoide_azul.webp" alt="Ilustração de tireoide com nódulo" loading="lazy" style="aspect-ratio:1.1;object-fit:cover"></div>
+      <div style="display:grid;gap:20px"><p class="blue-t">Planejamento cirúrgico</p><p style="font-size:18px;color:#000">Nódulos com marcadores prognósticos negativos podem ser elegíveis a cirurgias de menor porte, como a cirurgia parcial, que pode preservar parte do funcionamento tireoideano.</p>
+        <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#3a9ad9" stroke-width="1.8" style="margin-top:20px"><path d="M14 50l24-24 8 8-24 24-10 2z"/><path d="M38 26l6-6M42 14l8 8M46 10l8 8M26 38l4 4M32 32l4 4"/></svg>
+        <p style="font-size:15px;color:#000">Não precisa de nova punção <b>(PAAF)</b><br>Utilizamos a mesma amostra já coletada.</p></div></div>
+    <div class="gap-m"></div>
+  </div></section>
+</div>
+
+<!-- ======================================================= TARGET -->
+<div class="page" data-page="target" data-title="mir-THYpe target" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/banner_target.webp)"><div class="in" style="padding-left:14%">
+      <img class="logo" src="assets/img/target@2x.webp" alt="mir-THYpe target" style="width:240px">
+      <h1><span style="color:var(--pink)">Medicina de precisão,</span><br>e personalização no tratamento</h1>
+      <div class="hero-row" style="justify-content:flex-start;gap:220px;align-items:center"><a class="pill" href="#contato">Solicite o seu mir-THYpe target</a><img class="cap-badge" src="assets/img/elemento2_banner.webp" alt="Acreditado pelo CAP" style="width:140px"></div>
+    </div></div>
+  </section>
+  <section class="sec pink-side" data-label="Painel tumoral"><div class="wrap" style="padding-block:70px">
+    <div class="two" style="grid-template-columns:447px 1fr"><div class="img-r"><img src="assets/img/01.webp" alt="" loading="lazy"></div><div style="display:grid;gap:24px"><h2 style="font-size:28px;line-height:1.4">Painel tumoral para seleção de drogas-alvo em câncer de tireoide avançado</h2><p style="font-size:13px;color:#222">Terapias-alvo consistem em medicamentos racionalmente desenhados para atuarem vias de sinalização específicas que podem estar alteradas por mutações (DNA) ou por fusões (RNA) somáticas diretamente no tumor.</p></div></div>
+  </div></section>
+  <section class="sec" data-label="Indicação e o que o teste analisa"><div class="wrap" style="display:grid;gap:60px">
+    <div class="trow"><h3>Indicação:</h3><p>Tumores avançados e/ou metastáticos de Tireoide, normalmente resistentes/refratários à radioiodoterapia.</p></div>
+    <h2 style="font-size:28px;line-height:1.35;max-width:820px">Verifique a possibilidade de participar de programas gratuitos ou subsidiados de testagem molecularpara terapias-alvo</h2>
+    <div class="ilist">
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><path d="M14 4h20M14 44h20M16 4c0 14 16 26 16 40M32 4c0 14-16 26-16 40M18 14h12M18 34h12M20 24h8"/></svg><p>O teste analisa mutações (DNA), e também, fusões (RNA) em 52 genes-alvo (”drogáveis”), incluindo todas as alterações moleculares para seleção de drogas-alvo em Câncer de Tireoide Avançado (genes BRAF, NTRK e RET).</p></div>
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><circle cx="20" cy="20" r="13"/><path d="M30 30l12 12M14 20l4 4 8-8"/></svg><p>Inclui avaliação da mutação V804L/M do gene RET, dificilmente encontrada em outros testes no mercado.</p></div>
+      <div><svg viewBox="0 0 48 48" fill="none" stroke="#222" stroke-width="1.6"><path d="M6 28h22M6 36h22M6 44h22"/><circle cx="36" cy="18" r="9" fill="#222"/><path d="M32 18l3 3 6-6" stroke="#fff"/></svg><p>Apresenta um laudo descomplicado, com a indicação de quais drogas-alvos e relacionam com as alterações moleculares encontradas.</p></div>
+    </div>
+    <div class="gap-s"></div>
+  </div></section>
+  <section class="sec" data-label="Terapias-alvo disponíveis"><div class="wrap">
+    <div class="pinkbox">
+      <h2>Terapias-alvo disponíveis para Câncer de Tireoide Avançado</h2>
+      <p class="sub">Tipo de Câncer de Tireoide Avançado</p>
+      <p class="note">*Alteração molecular</p>
+      <div class="dcols">
+        <div><span class="pill noarrow">BRAF V600E*</span><span class="it">Anaplásico<br>Papilífero</span></div>
+        <div><span class="pill noarrow">RET (Fusões e Mutações)*</span><span class="it">Anaplásico<br>Papilífero/Medular</span></div>
+        <div><span class="pill noarrow">NTRK (Fusões)*</span><span class="it">Anaplásico<br>Papilífero</span></div>
+      </div>
+      <h2 style="font-size:26px;margin-top:70px">Terapias-alvo disponíveis</h2>
+      <div class="dcols">
+        <div><span class="pill noarrow">BRAF V600E*</span><span class="it">Dabrafenibe<br>(Tafinlar)</span><span class="it" style="border:0">Trametinibe<br>(Mekinist)</span></div>
+        <div><span class="pill noarrow">RET (Fusões e Mutações)*</span><span class="it">Selpercatinibe<br>(RETevmo)</span><span class="it" style="border:0">Pralsetinibe<br>(Gavreto)</span></div>
+        <div><span class="pill noarrow">NTRK (Fusões)*</span><span class="it">Larotrectinibe<br>(Vitraki)</span><span class="it" style="border:0">Entrectinibe<br>(Rozlytrek)</span></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="sec" data-label="Atenção"><div class="wrap" style="padding-block:80px;display:grid;gap:20px;padding-inline:max(70px,env(safe-area-inset-left,0px))">
+    <h2 style="font-size:28px">Atenção:</h2>
+    <p style="font-size:14px;color:#222;line-height:1.7">Este exame NÃO é indicado para investigação de Carcinoma Medular Familiar/hereditário ou síndromeMEN2A, pois faz análise de material somático (do tumor). Para investigação de Carcinoma Medular Familiar/hereditário ou síndrome MEN2A causados por mutações no proto-oncogene RET é necessário análise de material germinativo, como por exemplo, raspado bucal por swab.</p>
+  </div></section>
+</div>
+
+<!-- ======================================================= QUALIDADE -->
+<div class="page" data-page="qualidade" data-title="Nossa Qualidade" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px"><div class="qhero"><p class="qlabel">Ciência de Ponta<br>com <b>Garantia de Excelência</b></p></div></section>
+  <section class="sec" data-label="Introdução"><div class="wrap" style="padding-block:40px 20px"><p style="font-size:15px;color:#000;line-height:1.75;max-width:980px;margin:0 auto"><b>Nossa missão de impactar vidas é sustentada por dois pilares:</b> a busca constante por novas descobertas científicas e o cumprimento dos mais rígidos padrões nacionais e internacionais de qualidade. Conheça nossas publicações e as diretrizes que garantem a excelência dos nossos serviços.</p></div></section>
+  <section class="sec" data-label="Acreditação CAP, proficiência e NPS"><div class="wrap">
+    <div class="qrow"><img src="assets/img/ONKOS-CAP_Cert_Large_MICROSOFT_Color-1.webp" alt="CAP Accredited" style="width:313px"><div style="display:grid;gap:10px"><h2>Somos acreditados pelo <b>CAP</b></h2><p>(College of American Pathologist), com reconhecimento internacional das normas de qualidade, processo e confiabilidade dos resultados.</p></div></div>
+    <div class="qblock"><h2 class="qtitle">No teste de proficiência <b>BRAF Survey no CAP</b></h2><p>Obtivemos 100% de aprovação em nossos resultados. Certificado 2024</p><div><span class="pill noarrow" style="padding-inline:36px">Certificado</span></div></div>
+    <div class="qblock"><div class="flex"><div style="display:grid;gap:20px"><h2 class="qtitle">Histórico de <b>satisfação</b></h2><p style="max-width:560px">Possuímos histórico de satisfação comprovada através do NPS usado para avaliar toda nossa jornada do paciente.</p></div><p class="nps">NPS Onkos<b>+95</b></p></div><div><span class="pill noarrow" style="padding-inline:40px">Confira</span></div></div>
+  </div></section>
+  <section class="sec" data-label="Legislações seguidas"><div class="wrap">
+    <h2 class="qtitle center" style="padding-top:40px">Legislações seguidas <b>pela Onkos</b></h2>
+    <div class="laws" style="padding-top:40px">
+      <p><b>RDC 978/2025 (ANVISA)</b><span>Requisitos para o funcionamento de laboratórios clínicos e postos de coleta. Substitui a RDC 786/2023.</span></p>
+      <p><b>RDC 302/2005 (ANVISA)</b><span>Regulamento técnico para laboratórios clínicos, referência histórica e complementar.</span></p>
+      <p><b>RDC 36/2015 (ANVISA)</b><span>Boas práticas e segurança do paciente em serviços de saúde.</span></p>
+      <p><b>RDC 11/2012 (ANVISA)</b><span>Funcionamento de serviços que manipulam material biológico humano.</span></p>
+      <p><b>RDC 23/2011 e RDC 27/2012</b><span>Boas práticas de fabricação e controle de produtos para diagnóstico in vitro.</span></p>
+      <p><b>LGPD (Lei nº 13.709/2018)</b><span>Lei Geral de Proteção de Dados, incluindo dados de saúde.</span></p>
+      <p><b>Normas Regulamentadoras NR-1, NR-4, NR-5, NR-6, NR-7, NR-9, NR-17, NR-23, NR-24,NR-26, NR-28, NR-32.</b><span>Segurança e saúde no trabalho em serviços de saúde.</span></p>
+      <p><b>OMS – Biossegurança (WHO)</b><span>Diretrizes globais de biossegurança em laboratórios clínicos.</span></p>
+    </div>
+    <hr class="rule">
+  </div></section>
+  <section class="sec" data-label="Principais publicações"><div class="wrap" style="padding-block:80px 100px;display:grid;gap:60px">
+    <h2 class="center" style="font-size:30px">Principais publicações sobre o <b>mir-THYpe</b></h2>
+    <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track">
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Artigo-The-Lancet.webp" alt="The Lancet Discovery Science" loading="lazy"><a class="pill noarrow" href="https://doi.org/10.1016/j.ebiom.2022.104137" target="_blank" rel="noopener" style="padding-inline:34px">Acesse</a></div>
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Artigo-Thyroid.webp" alt="Revista Thyroid" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+      <div class="pub" style="width:100%"><img src="assets/img/ONKOS-Ciencia-Poster-CBEM-scaled.webp" alt="Pôster CBEM" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+      <div class="pub" style="width:100%"><img src="assets/img/Imagem-estudo-ETA-scaled.webp" alt="Estudo European Thyroid Journal" loading="lazy"><span class="pill noarrow" style="padding-inline:34px">Acesse</span></div>
+    </div><button class="arrow next" type="button" aria-label="Próximo"></button></div>
+  </div></section>
+</div>
+
+<!-- ======================================================= QUEM SOMOS / PRÊMIOS -->
+<div class="page" data-page="quem-somos" data-title="Prêmio e Reconhecimentos" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/que_somos.webp)"><div class="in" style="padding-left:9%"><h1>Transformamos incerteza<br><b>em decisão</b></h1></div></div>
+  </section>
+  <section class="sec" data-label="Quem é a Onkos"><div class="wrap" style="padding-block:60px"><p class="qs-intro">A <b>Onkos é uma deep tech</b> especializada em biologia molecular e inteligência artificial aplicadas à oncologia, desenvolvendo <b>tecnologias proprietárias</b> que transformam conhecimento científico em <b>decisões clínicas mais seguras.</b></p></div></section>
+  <section class="sec" data-label="Vídeo institucional"><div class="wrap"><a class="qs-video vthumb" href="https://www.youtube.com/@onkosdiagnosticos" target="_blank" rel="noopener" aria-label="Assistir vídeo Quem somos"><img src="assets/img/video_quem_somos.webp" alt="" loading="lazy"></a><div class="gap-m"></div></div></section>
+  <section class="sec" data-label="Linha do tempo e prêmios"><div class="tl-wrap">
+    <div class="wrap"><div class="track tl-track" id="tl"></div></div>
+    <button class="arrow prev" type="button" aria-label="Ano anterior" data-for="tl"></button><button class="arrow next" type="button" aria-label="Próximo ano" data-for="tl"></button>
+  </div></section>
+  <section class="sec decade" data-label="Há mais de uma década"><div class="wrap" style="padding-block:80px 40px">
+    <h2 style="margin-bottom:40px">Há mais de uma década <b>impactando<br>vidas por meio da ciência</b></h2>
+    <div class="two"><div style="display:grid;gap:26px"><p>Desde 2015, a Onkos desenvolve tecnologias proprietárias que unem biologia molecular e inteligência artificial para reduzir a incerteza diagnóstica e apoiar decisões clínicas em oncologia.</p><p>Mais do que realizar exames, desenvolvemos ferramentas que ajudam médicos a tomar decisões com mais clareza e confiança, e pacientes a seguirem sua jornada com mais segurança.</p></div><div class="img-r"><img src="assets/img/impactando_vidas.webp" alt="Equipe da Onkos no laboratório" loading="lazy"></div></div>
+  </div></section>
+  <section class="sec" data-label="O que nos move"><div class="wrap">
+    <div class="move"><h2>O que nos move</h2><p>Não acreditamos que toda decisão difícil precise ser tomada com informação limitada.<br>Por isso desenvolvemos tecnologias capazes de transformar dados complexos em informações clínicas relevantes.<br>Porque decisões melhores começam com mais conhecimento.</p></div>
+    <div class="move"><h2>O diagnóstico molecular está transformando a oncologia</h2><p>Nosso papel é acelerar essa evolução por meio de tecnologias capazes de apoiar decisões clínicas individualizadas, baseadas em biologia molecular e tecnologia.</p></div>
+  </div></section>
+  <section class="sec" data-label="Valores"><div class="wrap" style="padding-block:60px 90px">
+    <div class="values">
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="1.6"><path d="M32 14c-4-8-18-6-18 4 0 8 18 18 18 18s18-10 18-18c0-10-14-12-18-4z"/><circle cx="20" cy="40" r="4"/><circle cx="32" cy="38" r="4"/><circle cx="44" cy="40" r="4"/><path d="M12 54c0-5 4-8 8-8s8 3 8 8M24 52c0-5 4-8 8-8s8 3 8 8M36 54c0-5 4-8 8-8s8 3 8 8"/></svg><h3>Pessoas em<br>primeiro lugar</h3><p>Toda tecnologia que desenvolvemos existe para impactar vidas.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="1.6"><path d="M18 56h30M24 50h20M30 50V40M26 14l10-6 4 7-10 6zM30 22l-4 14a10 10 0 0 0 16 6"/><circle cx="33" cy="12" r="1"/></svg><h3>Ciência<br>com propósito</h3><p>Transformamos conhecimento em benefício real para pacientes e médicos.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="1.6"><circle cx="32" cy="32" r="9"/><path d="M32 12v8M32 44v8M12 32h8M44 32h8M18 18l6 6M40 40l6 6M18 46l6-6M40 24l6-6"/></svg><h3>Clareza que<br>gera confiança</h3><p>Acreditamos que decisões melhores começam com mais informação.</p></div>
+      <div><svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="1.6"><circle cx="28" cy="28" r="18"/><path d="M41 41l14 14"/><path d="M16 28c4-6 20-6 24 0-4 6-20 6-24 0z"/><circle cx="28" cy="28" r="3" fill="#111"/></svg><h3>Nossa evolução<br>contínua</h3><p>A curiosidade científica é o motor da nossa inovação.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================================================= NA MÍDIA -->
+<div class="page" data-page="na-midia" data-title="Na Mídia" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/banner_na_midia.webp)"><div class="in" style="padding-left:12%"><h1>Confira as <b>últimas notícias</b><br>da Onkos na mídia.</h1></div></div>
+  </section>
+  <section class="sec" data-label="Notícias recentes"><div class="wrap" style="padding-block:70px 40px">
+    <div class="track" style="gap:36px">
+      <div class="ncard"><img src="assets/img/midia_100startups.webp" alt="" loading="lazy"><h3>Com biologia molecular e IA, Onkos figura pela quinta vez na lista das 100 Startups to Watch</h3><div class="ft"><span>Publicado: outubro 22, 2025</span><span class="pill noarrow sm">Leia a notícia completa</span></div></div>
+      <div class="ncard"><img src="assets/img/midia_exame.webp" alt="" loading="lazy"><h3>Onkos no Ranking da Exame: como nosso crescimento ajuda pacientes a evitar cirurgias desnecessárias</h3><div class="ft"><span>Publicado: agosto 6, 2025</span><span class="pill noarrow sm">Leia a notícia completa</span></div></div>
+    </div>
+  </div></section>
+  <section class="sec" data-label="Notícias anteriores (carrossel)"><div class="wrap" style="padding-block:40px 80px">
+    <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track feat-track">
+      <div class="fe"><img src="assets/img/ONKOS-Blog-Na-Midia-VivaBem-UOL-500x300.webp" alt="VivaBem UOL" loading="lazy"><h3>Tireoide: tecnologia brasileira reduz até 75% de cirurgias desnecessárias</h3><div class="ft"><span>Publicado: outubro 10, 2023</span><a class="pill noarrow sm" href="https://www.uol.com.br/vivabem/colunas/lucia-helena/2023/10/10/tireoide-tecnologia-brasileira-reduz-ate-75-de-cirurgias-desnecessarias.htm" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/ONKOS-Blog-Na-Midia-Veja-saude-500x300.webp" alt="Veja Saúde" loading="lazy"><h3>Exames genéticos podem evitar cirurgias de tireoide?</h3><div class="ft"><span>Publicado: outubro 6, 2023</span><a class="pill noarrow sm" href="https://saude.abril.com.br/medicina/exames-geneticos-podem-evitar-cirurgias-de-tireoide" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/ONKOS-Blog-Na-Midia-SP-RECORD-500x300.webp" alt="SP Record" loading="lazy"><h3>Ciência SP | Teste molecular para nódulos da tireoide</h3><div class="ft"><span>Publicado: setembro 28, 2023</span><a class="pill noarrow sm" href="https://www.youtube.com/watch?v=Fpkd78kA5bQ" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/nova-brasil-500x300.webp" alt="Nova Brasil" loading="lazy"><h3>Tecnologia para diagnóstico de tumor de tireoide</h3><div class="ft"><span>Publicado: setembro 18, 2023</span><a class="pill noarrow sm" href="https://youtu.be/ZrzGmNpzIKE" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/agencia_fapesp_namidia-1-500x300.webp" alt="Agência FAPESP" loading="lazy"><h3>Teste para diagnosticar tumores de tireoide ganha Prêmio Octavio Frias de Oliveira</h3><div class="ft"><span>Publicado: agosto 25, 2023</span><a class="pill noarrow sm" href="https://agencia.fapesp.br/teste-para-diagnosticar-tumores-de-tireoide-ganha-premio-octavio-frias-de-oliveira/42129" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/ONKOS-Na-Midia-Folha-de-Sao-Paulo-500x300.webp" alt="Folha de S.Paulo" loading="lazy"><h3>Prêmio Octavio Frias de Oliveira anuncia vencedores</h3><div class="ft"><span>Publicado: agosto 18, 2023</span><a class="pill noarrow sm" href="https://www1.folha.uol.com.br/equilibrioesaude/2023/08/teste-para-nodulo-de-tireoide-e-pesquisa-sobre-leucemia-vencem-o-14o-premio-octavio-frias-de-oliveira.shtml" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/ONKOS-Na-Midia-TV-Folha-500x300.webp" alt="TV Folha" loading="lazy"><h3>Teste para nódulo na tireoide ganha Prêmio Octavio Frias de Oliveira</h3><div class="ft"><span>Publicado: agosto 2023</span><a class="pill noarrow sm" href="https://tv.uol/1A6Nz" target="_blank" rel="noopener">Leia a notícia completa</a></div></div>
+      <div class="fe"><img src="assets/img/ONKOS-Blog-Na-Midia-Medicina-SA-500x300.webp" alt="Medicina S/A" loading="lazy"><h3>Estudo aponta redução de até 75% de cirurgias em nódulos de tireoide</h3><div class="ft"><span>Publicado: julho 19, 2022</span><span class="pill noarrow sm">Leia a notícia completa</span></div></div>
+    </div><button class="arrow next" type="button" aria-label="Próximo"></button></div>
+  </div></section>
+  <section class="sec" data-label="Podcasts e webinars"><div class="wrap" style="padding-block:20px 60px">
+    <div class="split-car"><h2>Últimos<br><b>podcasts</b><br>e <b>webnars</b></h2>
+      <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track">
+        <a class="yt" href="https://www.youtube.com/watch?v=y73yYf5-XWs" target="_blank" rel="noopener"><span>International Webinar - Thyroid<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+        <a class="yt" href="https://www.youtube.com/watch?v=C6_wqQulJus" target="_blank" rel="noopener"><span>Webinar Onkos<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+        <a class="yt" href="https://www.youtube.com/watch?v=WbwbJwS0itQ" target="_blank" rel="noopener"><span>Podcast Onkos<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+      </div><button class="arrow next" type="button" aria-label="Próximo"></button></div></div>
+  </div></section>
+  <section class="sec" data-label="Artigos do blog"><div class="wrap" style="display:grid;gap:50px;padding-block:20px 60px">
+    <h2 class="center" style="font-size:28px">CONFIRA OS ARTIGOS DO <b>NOSSO BLOG</b></h2>
+    <div data-use="tpl-blog"></div>
+  </div></section>
+  <section class="sec" data-label="Canal no YouTube"><div class="wrap" style="padding-block:20px 80px">
+    <div class="split-car"><h2>Confira<br>nosso<br><b>canal no<br>YouTube</b></h2>
+      <div class="car"><button class="arrow prev" type="button" aria-label="Anterior"></button><div class="track">
+        <a class="yt" href="https://www.youtube.com/watch?v=XJiAGKfWv2Q" target="_blank" rel="noopener"><span>ATA Guidelines: o que há de novo para os testes moleculares?<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+        <a class="yt" href="https://www.youtube.com/watch?v=HPQphiwVVFA" target="_blank" rel="noopener"><span>Vídeo Onkos<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+        <a class="yt" href="https://www.youtube.com/watch?v=M1mSDT-ukjU" target="_blank" rel="noopener"><span>Vídeo Onkos<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+        <a class="yt" href="https://www.youtube.com/watch?v=cb_PYpgdRu0" target="_blank" rel="noopener"><span>Vídeo Onkos<br><small>Onkos Diagnósticos Moleculares</small></span></a>
+      </div><button class="arrow next" type="button" aria-label="Próximo"></button></div></div>
+  </div></section>
+</div>
+
+<!-- ======================================================= CONTATO -->
+<div class="page" data-page="contato" data-title="Contato" hidden>
+  <section class="sec edge" data-label="Banner" style="padding-top:10px">
+    <div class="hero" style="background-image:url(assets/img/bg_banner_contato_2.webp);align-items:flex-start"><div class="in" style="padding-top:90px;padding-left:8%"><h1>Como podemos<br><b>ajudar você?</b></h1></div></div>
+  </section>
+  <section class="sec" data-label="Fale conosco no WhatsApp"><div class="wrap" style="padding-block:70px 50px;display:grid;gap:60px">
+    <div class="ct-q"><h2>Tem dúvidas sobre <b>testes moleculares,<br>resultados ou parceiros</b> Onkos?</h2><p>Entre em contato com nossa equipe especializada.</p></div>
+    <div class="wa"><div><label>Paciente:</label><a href="https://wa.me/5516997004265" target="_blank" rel="noopener">Fale conosco no Whatsapp<span></span></a></div><div><label>Médico:</label><a href="https://wa.me/5516991593786" target="_blank" rel="noopener">Fale conosco no Whatsapp<span></span></a></div></div>
+  </div><hr class="rule"></section>
+  <section class="sec" data-label="Formulário de pedido médico"><div class="wrap center" style="padding-block:60px;display:grid;gap:26px;justify-items:center">
+    <h2 style="font-size:26px;font-weight:500">Baixe aqui o formulário de pedido médico</h2>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center"><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/full_logo.webp" alt="mir-THYpe full"></a><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/pre-op@2x.webp" alt="mir-THYpe pre-op"></a><a class="logo-pill" href="http://bit.ly/Pedido_Medico" target="_blank" rel="noopener"><img src="assets/img/target@2x.webp" alt="mir-THYpe target"></a></div>
+  </div><hr class="rule"><div class="gap-s"></div></section>
+  <div data-use="tpl-partners"></div>
+  <section class="sec" data-label="Redes sociais"><hr class="rule"><div class="wrap center" style="padding-block:110px 20px;display:grid;gap:24px">
+    <h2 style="font-size:28px">Nos siga em nossas redes sociais</h2>
+    <div class="social"><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a></div>
+  </div></section>
+  <div data-use="tpl-faq"></div>
+</div>
+
+</main>
+
+<a class="wpp" href="https://wa.me/5516997004265" target="_blank" rel="noopener" aria-label="WhatsApp Onkos"><svg><use href="#i-wa"/></svg></a>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
